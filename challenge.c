@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <sparse.h>
 
 // =========================================================
 // FUNCTION PROTOTYPE
@@ -26,7 +27,21 @@ void sparse_multiply(
     int* out_nnz, double* values, int* col_indices, int* row_ptrs,
     double* y
 ) {
-    // TODO
+    // int rows     number of rows in A
+    // int cols     number of columns in A
+    // const double* A      row major matrix A
+    // const double* x      second Vector        
+    // int* out_nnz     number of non zero elements in A             
+    // double* values   all non zero value
+    // int* col_indices     column indices for non zero elements in values     
+    // int* row_ptrs        start address of each row in values
+    // double* y        result vector
+    
+    // fill values and caller provided buffers with non all zero elements 
+    // from row major Matrix according to CSR Format
+    csr_format(A, rows, cols, row_ptrs, col_indices, values, out_nnz);
+
+    csr_sparse_multply(values, x, row_ptrs, col_indices, rows, y);
 }
 
 // =========================================================

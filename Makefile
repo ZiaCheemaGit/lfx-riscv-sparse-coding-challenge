@@ -1,3 +1,3 @@
 all:
-	gcc challenge.c -lm -o run
+	gcc challenge.c -lm -o run.o
 

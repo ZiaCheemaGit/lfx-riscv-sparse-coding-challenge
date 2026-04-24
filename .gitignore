@@ -1,2 +1,5 @@
 # C ouptut program 
 *.o
+
+# pycache and nox
+__pycache__

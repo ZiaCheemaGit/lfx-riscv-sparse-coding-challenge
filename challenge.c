@@ -41,7 +41,8 @@ void sparse_multiply(
     // from row major Matrix according to CSR Format
     csr_format(A, rows, cols, row_ptrs, col_indices, values, out_nnz);
 
-    csr_sparse_multply(values, x, row_ptrs, col_indices, rows, y);
+    // sparse multiplication using filled buffers
+    csr_sparse_multiply(values, x, row_ptrs, col_indices, rows, y);
 }
 
 // =========================================================
